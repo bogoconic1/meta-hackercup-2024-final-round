@@ -1,0 +1,47 @@
+Gauss would like to heat up some pizza on his special grill. The grill grates occupy an infinite 2D plane and consist of a metal pin at every lattice point $(x, y) \in \mathbb{Z}^2$. However, the burner below is round, so the grill only delivers heat at every lattice point within (or exactly on the border of) the circle of radius $R$ centered at $(0, 0)$.
+
+Gauss would like to simultaneously heat up $N$ slices of pizza, the \(i\)th of which is a triangle with integral vertices $(X_{i,A}, Y_{i,A})$, $(X_{i,B}, Y_{i,B})$, and $(X_{i,C}, Y_{i,C})$. Each slice is either:
+- fully inside the circle (with all three vertices either inside or on the circle boundary), or
+- partially intersecting the circle such that:
+  - at least 1 vertex of the slice is strictly inside the circle, and
+  - the portion of the slice outside the circle (if any) must be a single connected region.
+
+Slices may touch one another at edges and vertices, but will not intersect with a positive area.
+
+For example, the following (sample cases 1 and 2) are allowed:
+
+{{PHOTO_ID:1645257336398917|WIDTH:750}}
+
+The following are disallowed:
+
+{{PHOTO_ID:8743207805773790|WIDTH:750}}
+
+For each slice, the heat it receives is the number of lattice points simultaneously inside (or on the border of) both the triangle and circle. Note that a lattice point may be repeatedly counted for multiple slices meeting at an edge or vertex.
+
+Please help Gauss calcuate the sum of heats received across all slices, modulo $1{,}000{,}000{,}007$.
+
+# Constraints
+
+$1 \le T \le 100$
+$1 \le N \le 100{,}000$
+$1 \le R \le 1{,}000{,}000$
+$-1{,}000{,}000 \le X_{i,A}, Y_{i,A}, X_{i,B}, Y_{i,B}, X_{i,C}, Y_{i,C} \le 1{,}000{,}000$
+
+The coordinates will form valid positive-area triangles satisfying the requirements above.
+The sum of $N$ across all test cases is at most $1{,}000{,}000$.
+
+# Input Format
+
+Input begins with an integer \(T\), the number of test cases. The first line of each case contains the integers $N$ and $R$. $N$ lines follow, the \(i\)th containing the integers $X_{i,A}$, $Y_{i,A}$, $X_{i,B}$, $Y_{i,B}$, $X_{i,C}$, and $Y_{i,C}$.
+
+# Output Format
+
+For the \(i\)th test case, print "`Case #i:` " followed by a single integer, the sum of heats received across all slices, modulo $1{,}000{,}000{,}007$.
+
+# Sample Explanation
+
+The first two sample cases are depicted above, with heating points in red.
+
+In the first case, there are $2$ units of heat received by the first slice, $9$ units of heat received by the second slice, and $4$ units of heat received by the third slice, for a total of $15$ units.
+
+In the second case, there are $21$ units of heat received by the first slice, $14$ received by the second, and $6$ by the third, for a total of $41$ units.

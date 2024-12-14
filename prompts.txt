@@ -1,0 +1,6 @@
+python run.py --model o1-mini-2024-09-12 --max_attempts 2 --num_time_complexity_tries 4 --num_concepts_tries 2 --problem_name '"Chicken Tender"'
+python run.py --model o1-mini-2024-09-12 --max_attempts 2 --num_time_complexity_tries 4 --num_concepts_tries 2 --problem_name '"Distributed Server"'
+python run.py --model o1-mini-2024-09-12 --max_attempts 2 --num_time_complexity_tries 4 --num_concepts_tries 2 --problem_name '"Duplicate Order"'
+python run.py --model o1-mini-2024-09-12 --max_attempts 2 --num_time_complexity_tries 4 --num_concepts_tries 2 --problem_name '"Pizza Broiler"'
+python run.py --model o1-mini-2024-09-12 --max_attempts 2 --num_time_complexity_tries 4 --num_concepts_tries 2 --problem_name '"Snake Cover"'
+python run.py --model o1-mini-2024-09-12 --max_attempts 2 --num_time_complexity_tries 4 --num_concepts_tries 2 --problem_name '"Sushi Platter"'

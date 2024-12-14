@@ -1,0 +1,40 @@
+As the organizer of Meta Snacker Cup, you've built a fleet of robot servers to collect snack orders from the kitchen, which is represented as a two-dimensional grid $G$ with $R$ rows and $C$ columns. The top-left cell is denoted $(1, 1)$ and the bottom-right is $(R, C)$. Each cell $(r, c)$ has a Latin letter $G_{r,c}$ denoting the type of snack to be collected there. Some letters are capitalized, indicating that an active robot initially occupies that cell.
+
+Every second, each active robot either deactivates itself, moves right, or moves down. That is, an active robot at $(r, c)$ can move to either $(r+1, c)$ or $(r, c+1)$. At the end of each second, no cell may be occupied by more than one active robot. If a robot cannot (or chooses not to) make a valid move, then it becomes deactivated and can never become active again.
+
+Each robot has a tray on which snacks are stacked as the robot moves. At any time, robot $i$'s tray is expressed as a string $S_i$, initially consisting of only the letter in its starting cell. When robot $i$ visits cell $(r,c)$, it appends the lower-case version of $G_{r,c}$ to the end of $S_i$.
+
+For a given sequence of valid moves, let $\min(S_i)$ be the lexicographically minimum value across all final strings $S_i$. Of all possible valid ways the robots can move, what's the lexicographically maximum possible value of $\min(S_i)$?
+
+# Constraints
+$1 \le T \le 70$
+$2 \le R, C \le 20$
+$G_{r,c} \in \{$'`a`'..'`z`', '`A`'..'`Z`'$\}$
+
+There will always be at least one active robot (capital letter) in the grid.
+
+# Input Format
+Input begins with an integer \(T\), the number of test cases. The first line of each case consists of the integers $R$ and $C$. Then, $R$ lines follow, the $r$-th line containing the string $G_{r,1..C}$.
+
+# Output Format
+For the \(i\)th test case, print "`Case #i:` " followed by a single string, the lexicographically maximum possible value of $\min(S_i)$ after all robots are deactivated.
+
+# Sample Explanation
+
+In the first case, one possible sequence of moves is no moves at all. All four of the robots could immediately deactivate in the first second. The values of $S$ will be ["`q`", "`m`", "`m`", "`m`"], so $\min(S_i)$ will be "`m`". 
+
+Another possible sequence of moves is as follows:
+* the robot initially in $(1, 1)$ moves right twice
+* the robot initially in $(1, 3)$ moves down once and then right once
+* the robot initially in $(2, 2)$ moves down once and then right twice
+* the robot initially in $(3, 1)$ deactivates immediately
+
+The values of $S$ after these moves will be ["`qdm`", "`mex`", "`meta`", "`p`"], so $\min(S_i)$ will be "`meta`". This is the lexicographically maximum possible value of $\min(S_i)$.
+
+In the second case, one possible way to achieve $\min(S_i) = $ "`hacker`" is as follows:
+* the robot initially in $(1, 1)$ moves right, right, right
+* the robot initially in $(1, 2)$ moves down, down, right, right, down
+* the robot initially in $(2, 1)$ moves down, down, right, right
+* the robot initially in $(4, 2)$ deactivates immediately
+
+The values of $S$ after these moves will be ["`zhaa`", "`hacker`", "`haczd`", "`z`"].

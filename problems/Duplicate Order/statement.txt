@@ -1,0 +1,42 @@
+*Meta Snacker Cup* is an event where foodies of the world congregate to try snacks made by top chefs. For the first course, there is a selection of ham snacks, each denoted as a single letter from an alphabet $\Sigma$. A customer can make an *order*, which is any string consisting of letters from $\Sigma$.
+
+Due to the sheer popularity of Snacker Cup, the organizers have built robots to automate ordering. Unfortunately, the bots are in beta and can make mistakes. To help untangle orders, a metric called the *Ham distance* is used. Given two length-$N$ strings $s_1$ and $s_2$, the Ham distance $h(s_1, s_2)$ is the number of places in which they differ. For example, $h($"`slice`"$,\,$"`twice`"$)=2$.
+
+One of the robots recorded two orders $S_1$ and $S_2$ of equal length $N$. Each of these is a duplicate of the same original order given by a customer, but each diverged via zero or more letter substitutions (mistakes). Unfortunately, the robot crashed and lost both the two recorded orders, and the original order. From the error logs, you only know that:
+- $h(S_1, S_2) = H$
+- Order $S_1$ had at most $M_1$ mistakes, i.e. the original order is in $\{s : h(s, S_1) \le M_1\}$
+- Order $S_2$ had at most $M_2$ mistakes, i.e. the original order is in $\{s : h(s, S_2) \le M_2\}$
+
+You'd like to count the number of ways the original order and the two recorded orders could have been made. Formally, you'd like to know the value of:
+
+\[ \sum_{S_1, S_2 \in \Sigma^N,\, h(S_1,S_2) = H} | \{ s : h(s, S_1) \le M_1\} \bigcap \{s : h(s, S_2) \le M_2\} | \]
+
+As this number may be very large, print it modulo $1{,}000{,}000{,}007$.
+
+# Constraints
+$1 \leq T \leq 100$
+$1 \le N \leq 10{,}000$
+$1 \le M_1, M_2 \le 10{,}000$
+$0 \le H \le N$
+$2 \le |\Sigma| \le 1{,}000{,}000$
+
+# Input Format
+The first line contains the number of test cases $T$. For each case, there is a single line consisting of five space-separated integers $N, M_1$, $M_2$, $H$, and $| \Sigma |$.
+
+# Output Format
+For the \(i\)th test case, print "`Case #i:` " followed by a single integer, the number of strings that could've been the original order, modulo $1{,}000{,}000{,}007$.
+
+# Sample Explanation
+
+In the first sample case, we'll assume $\Sigma =$ {`a`, `b`}. Pairs of strings with a Ham distance of $1$ are:
+
+- {"`aa`", "`ba`"}
+- {"`aa`", "`ab`"}
+- {"`ba`", "`aa`"}
+- {"`ba`", "`bb`"}
+- {"`ab`", "`aa`"}
+- {"`ab`", "`bb`"}
+- {"`bb`", "`ba`"}
+- {"`bb`", "`ab`"}
+
+For the pair {"`aa`", "`ba`"}, the possible original orders are "`aa`", "`ab`" and "`ba`" as these each differ from "`aa`" by at most $1$ letter and from "`ba`" by at most $2$. It's easy to see that for each of the other seven strings, there are also three possible strings. Hence, the final answer is $24$.
